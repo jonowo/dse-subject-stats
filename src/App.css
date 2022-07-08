@@ -1,0 +1,56 @@
+body {
+    font-family: "Segoe UI" !important;
+}
+
+nav {
+    background-color: #53687E;
+}
+
+.stats-table th {
+    text-align: center;
+}
+
+.stats-table td {
+    text-align: right;
+    vertical-align: middle;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+}
+
+.stats-table tr:first-child > th {
+    border-top: thin solid black;
+}
+
+.stats-table tr > th:first-child {
+    border-left: thin solid black;
+}
+
+.stats-table tr > th:last-child {
+    border-right: thin solid black;
+}
+
+.stats-table td.all-border {
+    border: thin solid black;
+}
+
+.stats-table tr > td:first-child {
+    border-left: thin solid black;
+}
+
+.stats-table tr > td:last-child {
+    border-right: thin solid black;
+}
+
+.stats-table tr.bottom-border td, td.bottom-border {
+    border-bottom: thin solid black;
+}
+
+.stats-table > tbody > tr:nth-of-type(2n+1) > td.color-bg {
+    background-color: #f2f2f2;
+}
+
+.has-tooltip {
+    color: #53687E;
+    text-decoration: underline dashed #53687E;
+    cursor: pointer;
+}
