@@ -1,8 +1,8 @@
 import React from 'react';
+import Col from 'react-bootstrap/col';
 import Form from 'react-bootstrap/form';
 import Row from 'react-bootstrap/row';
-import Col from 'react-bootstrap/col';
-import { years, subjects, subcategories } from '../stats.js';
+import { subjects, years } from '../stats.js';
 
 class StatsForm extends React.Component {
     constructor(props) {
@@ -16,9 +16,9 @@ class StatsForm extends React.Component {
 
     render() {
         const params = this.props.params;
-        let availableSubcategories = subcategories[params.subject] || null;
+        const availableSubcategories = this.props.availableSubcategories;
         return (
-            <Form className="mb-3">
+            <Form>
                 <Row>
                     <Col md={6} lg={4}>
                         <Form.Group className="mb-3">
@@ -33,7 +33,7 @@ class StatsForm extends React.Component {
                                 }
                             </Form.Select>
                         </Form.Group>
-                        {availableSubcategories === null &&
+                        {availableSubcategories.length === 0 &&
                             <Form.Group className="mb-3">
                                 <Form.Label>Subcategory</Form.Label>
                                 <Form.Select name="subcategory" value={params.subcategory}
@@ -42,7 +42,7 @@ class StatsForm extends React.Component {
                                 </Form.Select>
                             </Form.Group>
                         }
-                        {availableSubcategories !== null &&
+                        {availableSubcategories.length > 0 &&
                             <Form.Group className="mb-3">
                                 <Form.Label>Subcategory</Form.Label>
                                 <Form.Select name="subcategory" value={params.subcategory}

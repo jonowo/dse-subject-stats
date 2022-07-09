@@ -1,6 +1,7 @@
 import React from 'react';
 import Table from 'react-bootstrap/table';
-import { grades, genders, years, stats } from '../stats';
+import { genders, grades, stats, years } from '../stats';
+import CopyButton from './CopyButton';
 
 class StatsTable extends React.Component {
     render() {
@@ -8,7 +9,7 @@ class StatsTable extends React.Component {
 
         if (params.subject === "null" && params.year === "null") {
             return (
-                <p>Specify either subject or year to see results.</p>
+                <h5 className="mb-3">Specify either subject or year to see results.</h5>
             );
         }
 
@@ -113,29 +114,32 @@ class StatsTable extends React.Component {
         }
 
         return (
-            <Table responsive bordered size="sm" className="stats-table">
-                <thead>
-                    <tr>
-                        <th rowSpan="2" width="4%">Year</th>
-                        <th rowSpan="2" colSpan="2">Subject</th>
-                        <th rowSpan="2" width="6%">Gender</th>
-                        <th rowSpan="2" width="6%">No. entered</th>
-                        <th rowSpan="2" width="6%">No. sat</th>
-                        <th rowSpan="2" width="6%">Chinese version</th>
-                        <th colSpan="8">Grades Attained</th>
-                    </tr>
-                    <tr>
-                        {
-                            grades.map(g =>
-                                <th key={g} width="5.3%">{g}</th>
-                            )
-                        }
-                    </tr>
-                </thead>
-                <tbody>
-                    {rows}
-                </tbody>
-            </Table>
+            <>
+                <CopyButton />
+                <Table responsive bordered size="sm" className="stats-table">
+                    <thead>
+                        <tr>
+                            <th rowSpan="2" width="4%">Year</th>
+                            <th rowSpan="2" colSpan="2">Subject</th>
+                            <th rowSpan="2" width="6%">Gender</th>
+                            <th rowSpan="2" width="6%">No. entered</th>
+                            <th rowSpan="2" width="6%">No. sat</th>
+                            <th rowSpan="2" width="6%">Chinese version</th>
+                            <th colSpan="8">Grades Attained</th>
+                        </tr>
+                        <tr>
+                            {
+                                grades.map(g =>
+                                    <th key={g} width="5.3%">{g}</th>
+                                )
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {rows}
+                    </tbody>
+                </Table>
+            </>
         );
     }
 }

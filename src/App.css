@@ -2,7 +2,7 @@ body {
     font-family: "Segoe UI" !important;
 }
 
-nav {
+nav, #copy-button {
     background-color: #53687E;
 }
 
