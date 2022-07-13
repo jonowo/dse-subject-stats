@@ -9,7 +9,25 @@ class StatsTable extends React.Component {
 
         if (params.subject === "null" && params.year === "null") {
             return (
-                <h5 className="mb-3">Specify either subject or year to see results.</h5>
+                <>
+                    <h5 className="mb-3">Specify either subject or year to see results.</h5>
+                    <p>
+                        <a href="" onClick={
+                            (e) => {
+                                this.props.handleChanges({
+                                    subject: "Mathematics",
+                                    subcategory: "Compulsory Part",
+                                    year: "null",
+                                    gender: "total",
+                                    candidateType: "a"
+                                });
+                                e.preventDefault();
+                            }
+                        }>
+                            Show example
+                        </a>
+                    </p>
+                </>
             );
         }
 

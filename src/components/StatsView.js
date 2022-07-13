@@ -17,12 +17,17 @@ class StatsView extends React.Component {
         this.cleanParams = this.cleanParams.bind(this);
         this.getAvailableSubcategories = this.getAvailableSubcategories.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.handleChanges = this.handleChanges.bind(this);
         this.updateURL = this.updateURL.bind(this);
 
         const search = new URLSearchParams(window.location.search);
         const params = Object.fromEntries(search);
         this.state = this.cleanParams(params);
         this.updateURL();
+    }
+
+    componentDidMount() {
+        window.addEventListener("popstate", (e) => { console.log(e.state); this.setState(e.state) });
     }
 
     cleanParams(params) {
@@ -62,6 +67,10 @@ class StatsView extends React.Component {
         this.setState(state, this.updateURL);
     }
 
+    handleChanges(obj) {
+        this.setState(obj, this.updateURL);
+    }
+
     updateURL() {
         let params = {};
         for (let key of ["subject", "subcategory", "year", "gender"]) {
@@ -72,12 +81,13 @@ class StatsView extends React.Component {
         if (this.state.candidateType !== "a") {
             params.candidateType = this.state.candidateType;
         }
+
         let search = new URLSearchParams(params);
         let url = window.location.pathname;
         if (search.toString()) {
             url += "?" + search.toString();
         }
-        window.history.pushState(params, "", url);
+        window.history.pushState(this.state, "", url);
     }
 
     render() {
@@ -85,7 +95,7 @@ class StatsView extends React.Component {
             <>
                 <StatsForm handleChange={this.handleChange} params={this.state}
                     availableSubcategories={this.getAvailableSubcategories()} />
-                <StatsTable params={this.state} />
+                <StatsTable handleChanges={this.handleChanges} params={this.state} />
             </>
         );
     }

@@ -12,7 +12,25 @@ function App() {
 
             <Navbar variant="dark">
                 <Container>
-                    <Navbar.Brand href="/">HKDSE Subject Results Statistics</Navbar.Brand>
+                    <Navbar.Brand href="/" onClick={
+                        (e) => {
+                            e.preventDefault();
+                            if (window.location.search === "") return;
+
+                            const state = {
+                                subject: "null",
+                                subcategory: "null",
+                                year: "null",
+                                gender: "null",
+                                candidateType: "a"
+                            };
+                            window.history.pushState(state, "", "/");
+
+                            // Trigger update in StatsView
+                            window.history.pushState(state, "", "/");
+                            window.history.back();
+                        }
+                    }>HKDSE Subject Results Statistics</Navbar.Brand>
                 </Container>
             </Navbar>
 
