@@ -3,6 +3,16 @@ import { candidateTypes, genders, subcategories, subjects, years } from '../stat
 import StatsForm from './StatsForm';
 import StatsTable from './StatsTable';
 
+
+function getAvailableSubcategories(subject) {
+    if (subject in subcategories) {
+        return subcategories[subject];
+    } else {
+        return [];
+    }
+}
+
+
 class StatsView extends React.Component {
     constructor(props) {
         super(props);
@@ -15,7 +25,6 @@ class StatsView extends React.Component {
         };
 
         this.cleanParams = this.cleanParams.bind(this);
-        this.getAvailableSubcategories = this.getAvailableSubcategories.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleChanges = this.handleChanges.bind(this);
         this.updateURL = this.updateURL.bind(this);
@@ -27,7 +36,7 @@ class StatsView extends React.Component {
     }
 
     componentDidMount() {
-        window.addEventListener("popstate", (e) => { console.log(e.state); this.setState(e.state) });
+        window.addEventListener("popstate", (e) => this.setState(e.state));
     }
 
     cleanParams(params) {
@@ -35,7 +44,7 @@ class StatsView extends React.Component {
         if (subjects.includes(params.subject)) {
             state.subject = params.subject;
         }
-        if (params.subcategory in this.getAvailableSubcategories()) {
+        if (getAvailableSubcategories(state.subject).includes(params.subcategory)) {
             state.subcategory = params.subcategory;
         }
         if (years.includes(params.year)) {
@@ -48,14 +57,6 @@ class StatsView extends React.Component {
             state.candidateType = params.candidateType;
         }
         return state;
-    }
-
-    getAvailableSubcategories() {
-        if (this.state.subject in subcategories) {
-            return subcategories[this.state.subject];
-        } else {
-            return [];
-        }
     }
 
     handleChange(key, value) {
@@ -94,7 +95,7 @@ class StatsView extends React.Component {
         return (
             <>
                 <StatsForm handleChange={this.handleChange} params={this.state}
-                    availableSubcategories={this.getAvailableSubcategories()} />
+                    availableSubcategories={getAvailableSubcategories(this.state.subject)} />
                 <StatsTable handleChanges={this.handleChanges} params={this.state} />
             </>
         );

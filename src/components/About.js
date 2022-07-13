@@ -11,6 +11,9 @@ function About() {
                 by <TextTooltip text="Hong Kong Examinations and Assessment Authority">HKEAA</TextTooltip>.
             </p>
             <p>
+                This website is installable as an offline app on mobile devices.
+            </p>
+            <p>
                 I may or may not remember to update this website after HKDSE results are released each year.
                 Remind me <a href="https://t.me/jowonowo" target="_blank" rel="noreferrer">here</a> if
                 you think I forgor.

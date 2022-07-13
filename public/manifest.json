@@ -13,9 +13,31 @@
             "type": "image/png"
         }
     ],
-    "start_url": "",
+    "start_url": "/",
     "display": "standalone",
     "scope": "/",
     "theme_color": "#53687E",
-    "background_color": "#ffffff"
+    "background_color": "#ffffff",
+    "shortcuts": [
+        {
+            "name": "Chinese Language",
+            "short_name": "Chinese",
+            "url": "/?subject=Chinese+Language&gender=total"
+        },
+        {
+            "name": "English Language",
+            "short_name": "English",
+            "url": "/?subject=English+Language&gender=total"
+        },
+        {
+            "name": "Mathematics (Compulsory Part)",
+            "short_name": "Math",
+            "url": "/?subject=Mathematics&subcategory=Compulsory+Part&gender=total"
+        },
+        {
+            "name": "Liberal Studies",
+            "short_name": "LS",
+            "url": "/?subject=Liberal+Studies&gender=total"
+        }
+    ]
 }
