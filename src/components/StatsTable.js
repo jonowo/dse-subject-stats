@@ -97,12 +97,12 @@ function StatsTable(props) {
                         <td className="color-bg text-start">
                             {t(`gender.${gender}`)}
                         </td>
-                        <td className="color-bg">{data[gender].no_entered.toString()}</td>
-                        <td className="color-bg">{data[gender].no_sat.toString()}</td>
+                        <td className="color-bg">{data[gender].noEntered.toString()}</td>
+                        <td className="color-bg">{data[gender].noSat.toString()}</td>
                         <td className="color-bg text-center">
                             {
-                                data[gender].chinese_version !== null
-                                    ? data[gender].chinese_version.toFixed(1) + "%"
+                                data[gender].chineseVersion !== null
+                                    ? data[gender].chineseVersion.toFixed(1) + "%"
                                     : "-"
                             }
                         </td>
@@ -111,7 +111,7 @@ function StatsTable(props) {
                             grades.map((g) =>
                                 <td key={g} className="color-bg">
                                     {data[gender][g].toString()} <br />
-                                    {(data[gender][g] / data[gender].no_sat * 100).toFixed(1)}%
+                                    {(data[gender][g] / data[gender].noSat * 100).toFixed(1)}%
                                 </td>
                             )
                         }
