@@ -4,7 +4,7 @@ import { genders, grades, stats, years } from '../stats';
 import CopyButton from './CopyButton';
 
 function StatsTable(props) {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const { params } = props;
 
     if (params.subject === "null" && params.year === "null") {
@@ -134,7 +134,8 @@ function StatsTable(props) {
     return (
         <>
             <CopyButton />
-            <Table responsive bordered size="sm" className="stats-table">
+            <Table responsive bordered size="sm" id="stats-table"
+                className={i18n.languages[0].startsWith("en") ? "" : "zh"}>
                 <thead>
                     <tr>
                         <th rowSpan="2" width="4%">{t("heading.year")}</th>
