@@ -1,32 +1,37 @@
+import { Trans, useTranslation } from 'react-i18next';
 import TextTooltip from './TextTooltip';
 
 function About() {
+    const { t } = useTranslation();
+
     return (
         <>
-            <h3>About</h3>
+            <h3>{t("about.title")}</h3>
             <p>
-                <TextTooltip text="Hong Kong Diploma of Secondary Education">HKDSE</TextTooltip> is
-                the university entrance exam in Hong Kong.
-                This website aggregates candidates' results in HKDSE Category A subjects as released
-                by <TextTooltip text="Hong Kong Examinations and Assessment Authority">HKEAA</TextTooltip>.
+                <Trans i18nKey="about.part1">
+                    <TextTooltip text="Hong Kong Diploma of Secondary Education"></TextTooltip>
+                    <TextTooltip text="Hong Kong Examinations and Assessment Authority"></TextTooltip>
+                </Trans>
             </p>
             <p>
-                This website is installable as an offline app on mobile devices.
+                {t("about.part2")}
             </p>
             <p>
-                I may or may not remember to update this website after HKDSE results are released each year.
-                Remind me <a href="https://t.me/jowonowo" target="_blank" rel="noreferrer">here</a> if
-                you think I forgor.
+                <Trans i18nKey="about.part3">
+                    <a href="https://t.me/jowonowo" target="_blank" rel="noreferrer"></a>
+                </Trans>
             </p>
             <p>
-                Made by a 2022 HKDSE candidate.
+                {t("about.part4")}
             </p>
             <p>
-                Source code: <a href="https://github.com/jonowo/dse-subject-stats" target="_blank" rel="noreferrer">
+                {t("about.part5")}
+                <a href="https://github.com/jonowo/dse-subject-stats" target="_blank" rel="noreferrer">
                     jonowo/dse-subject-stats
                 </a>
                 <br />
-                Data: <a href="https://github.com/jonowo/dse-subject-stats-json" target="_blank" rel="noreferrer">
+                {t("about.part6")}
+                <a href="https://github.com/jonowo/dse-subject-stats-json" target="_blank" rel="noreferrer">
                     jonowo/dse-subject-stats-json
                 </a>
             </p>

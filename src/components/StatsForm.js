@@ -2,99 +2,95 @@ import React from 'react';
 import Col from 'react-bootstrap/col';
 import Form from 'react-bootstrap/form';
 import Row from 'react-bootstrap/row';
-import { subjects, years } from '../stats.js';
+import { useTranslation } from 'react-i18next';
+import { candidateTypes, genders, subjects, years } from '../stats.js';
 
-class StatsForm extends React.Component {
-    constructor(props) {
-        super(props);
-        this.handleChange = this.handleChange.bind(this);
+function StatsForm(props) {
+    function handleChange(event) {
+        props.handleChange(event.target.name, event.target.value);
     }
 
-    handleChange(event) {
-        this.props.handleChange(event.target.name, event.target.value);
-    }
+    const { t } = useTranslation();
+    const { params, availableSubcategories } = props;
 
-    render() {
-        const params = this.props.params;
-        const availableSubcategories = this.props.availableSubcategories;
-        return (
-            <Form>
-                <Row>
-                    <Col md={6} lg={4}>
+    return (
+        <Form>
+            <Row>
+                <Col md={6} lg={4}>
+                    <Form.Group className="mb-3">
+                        <Form.Label>{t("heading.subject")}</Form.Label>
+                        <Form.Select name="subject" value={params.subject}
+                            onChange={handleChange}>
+                            <option value="null">-</option>
+                            {
+                                subjects.map((s) =>
+                                    <option key={s} value={s}>{t(s)}</option>
+                                )
+                            }
+                        </Form.Select>
+                    </Form.Group>
+                    {availableSubcategories.length === 0 &&
                         <Form.Group className="mb-3">
-                            <Form.Label>Subject</Form.Label>
-                            <Form.Select name="subject" value={params.subject}
-                                onChange={this.handleChange}>
+                            <Form.Label>{t("heading.subcategory")}</Form.Label>
+                            <Form.Select name="subcategory" value={params.subcategory}
+                                onChange={handleChange} disabled>
+                                <option value="null">-</option>
+                            </Form.Select>
+                        </Form.Group>
+                    }
+                    {availableSubcategories.length > 0 &&
+                        <Form.Group className="mb-3">
+                            <Form.Label>{t("heading.subcategory")}</Form.Label>
+                            <Form.Select name="subcategory" value={params.subcategory}
+                                onChange={handleChange}>
                                 <option value="null">-</option>
                                 {
-                                    subjects.map((s) =>
-                                        <option key={s.toString()}>{s}</option>
+                                    availableSubcategories.map((s) =>
+                                        <option key={s} value={s}>{t(s)}</option>
                                     )
                                 }
                             </Form.Select>
                         </Form.Group>
-                        {availableSubcategories.length === 0 &&
-                            <Form.Group className="mb-3">
-                                <Form.Label>Subcategory</Form.Label>
-                                <Form.Select name="subcategory" value={params.subcategory}
-                                    onChange={this.handleChange} disabled>
-                                    <option value="null">-</option>
-                                </Form.Select>
-                            </Form.Group>
-                        }
-                        {availableSubcategories.length > 0 &&
-                            <Form.Group className="mb-3">
-                                <Form.Label>Subcategory</Form.Label>
-                                <Form.Select name="subcategory" value={params.subcategory}
-                                    onChange={this.handleChange}>
-                                    <option value="null">-</option>
-                                    {
-                                        availableSubcategories.map((s) =>
-                                            <option key={s.toString()}>{s}</option>
-                                        )
-                                    }
-                                </Form.Select>
-                            </Form.Group>
-                        }
-                    </Col>
-                    <Col md={6} lg={4}>
-                        <Form.Group className="mb-3">
-                            <Form.Label>Year</Form.Label>
-                            <Form.Select name="year" value={params.year}
-                                onChange={this.handleChange}>
-                                <option value="null">-</option>
-                                {
-                                    years.map((y) =>
-                                        <option key={y.toString()}>{y}</option>
-                                    )
-                                }
-                            </Form.Select>
-                        </Form.Group>
-                        <Form.Group className="mb-3">
-                            <Form.Label>Gender</Form.Label>
-                            <Form.Select name="gender" value={params.gender}
-                                onChange={this.handleChange}>
-                                <option value="null">-</option>
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                                <option value="total">Total</option>
-                            </Form.Select>
-                        </Form.Group>
-                    </Col>
-                    <Col md={6} lg={4}>
-                        <Form.Group className="mb-3">
-                            <Form.Label>Candidate Type</Form.Label>
-                            <Form.Select name="candidateType" value={params.candidateType}
-                                onChange={this.handleChange}>
-                                <option value="a">Day School Candidates</option>
-                                <option value="b">All Candidates</option>
-                            </Form.Select>
-                        </Form.Group>
-                    </Col>
-                </Row>
-            </Form>
-        );
-    }
+                    }
+                </Col>
+                <Col md={6} lg={4}>
+                    <Form.Group className="mb-3">
+                        <Form.Label>{t("heading.year")}</Form.Label>
+                        <Form.Select name="year" value={params.year}
+                            onChange={handleChange}>
+                            <option value="null">-</option>
+                            {
+                                years.map((y) =>
+                                    <option key={y.toString()} value={y.toString()}>{y}</option>
+                                )
+                            }
+                        </Form.Select>
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label>{t("heading.gender")}</Form.Label>
+                        <Form.Select name="gender" value={params.gender}
+                            onChange={handleChange}>
+                            <option value="null">-</option>
+                            {genders.map((g) =>
+                                <option key={g} value={g}>{t(`gender.${g}`)}</option>
+                            )}
+                        </Form.Select>
+                    </Form.Group>
+                </Col>
+                <Col md={6} lg={4}>
+                    <Form.Group className="mb-3">
+                        <Form.Label>{t("heading.candidateType")}</Form.Label>
+                        <Form.Select name="candidateType" value={params.candidateType}
+                            onChange={handleChange}>
+                            {candidateTypes.map((c) =>
+                                <option key={c} value={c}>{t(`candidateType.${c}`)}</option>
+                            )}
+                        </Form.Select>
+                    </Form.Group>
+                </Col>
+            </Row>
+        </Form>
+    );
 }
 
 export default StatsForm;

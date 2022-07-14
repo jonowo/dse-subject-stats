@@ -1,0 +1,81 @@
+{
+    "title": "文憑試科目成績統計",
+    "about": {
+        "title": "簡介",
+        "part1": "此網站收集了香港中學文憑考試考生在甲類科目的成績，數據由考評局提供。",
+        "part2": "此網站可在手提裝置上安裝供線下使用。",
+        "part3": "本人年事已高，記憶力衰退，如放榜後未有更新此網頁，請在 <0>Telegram</0> 提醒本人。",
+        "part4": "由 2022 年文憑試考生製作。",
+        "part5": "原始碼：",
+        "part6": "數據："
+    },
+    "heading": {
+        "subject": "科目",
+        "year": "年份",
+        "candidateType": "考生類別",
+        "subcategory": "子類別",
+        "gender": "性別",
+        "noEntered": "報考人數",
+        "noSat": "出席人數",
+        "chineseVersion": "中文作答",
+        "gradesAttained": "考獲等級"
+    },
+    "table": {
+        "specify": "請選擇科目或年份。",
+        "showExample": "顯示例子",
+        "noResults": "沒有結果"
+    },
+    "copy": {
+        "copyLink": "複製分享連結",
+        "copied": "已複製！"
+    },
+    "gender": {
+        "male": "男生",
+        "female": "女生",
+        "total": "總數"
+    },
+    "candidateType": {
+        "a": "日校考生",
+        "b": "全體考生"
+    },
+    "Biology": "生物",
+    "Business, Accounting and Financial Studies": "企業、會計與財務概論",
+    "Accounting": "會計",
+    "Business Management": "商業管理",
+    "Chemistry": "化學",
+    "Chinese History": "中國歷史",
+    "Chinese Language": "中國語文",
+    "Chinese Literature": "中國文學",
+    "Design and Applied Technology": "設計與應用科技",
+    "Economics": "經濟",
+    "English Language": "英國語文",
+    "Ethics and Religious Studies": "倫理與宗教",
+    "Geography": "地理",
+    "Health Management and Social Care": "健康管理與社會關懷",
+    "History": "歷史",
+    "Information and Communication Technology": "資訊及通訊科技",
+    "Liberal Studies": "通識教育",
+    "Literature in English": "英語文學",
+    "Mathematics": "數學",
+    "Compulsory Part": "必修部分",
+    "Extended Part (Calculus and Statistics)": "延伸部分（微積分與統計）",
+    "Extended Part (Algebra and Calculus)": "延伸部分（代數與微積分）",
+    "Music": "音樂",
+    "Physical Education": "體育",
+    "Physics": "物理",
+    "Science": "科學",
+    "Combined Science (Biology, Chemistry)": "組合科學（生物、化學）",
+    "Combined Science (Biology, Physics)": "組合科學（生物、物理）",
+    "Combined Science (Chemistry, Physics)": "組合科學（化學、物理）",
+    "Combined Science (Biology)": "組合科學（生物）",
+    "Combined Science (Chemistry)": "組合科學（化學）",
+    "Combined Science (Physics)": "組合科學（物理）",
+    "Combined Science": "組合科學",
+    "Integrated Science": "綜合科學",
+    "Technology and Living": "科技與生活",
+    "Food Science and Technology": "食品科學與科技",
+    "Fashion, Clothing and Textiles": "服裝、成衣與紡織",
+    "Tourism and Hospitality Studies": "旅遊與款待",
+    "Visual Arts": "視覺藝術",
+    "All Category A subjects": "所有甲類學科"
+}
