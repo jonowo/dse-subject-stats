@@ -32,6 +32,7 @@ function StatsTable(props) {
     }
 
     // Horrible code
+    let hasAllCategoryASubjects = false;
     let rows = [];
     for (let year of years) {
         if (params.year !== "null" && params.year !== year) continue;
@@ -41,6 +42,10 @@ function StatsTable(props) {
             const data = group[i];
             if (params.subject !== "null" && params.subject !== data.subject) continue;
             if (params.subcategory !== "null" && params.subcategory !== data.subcategory) continue;
+
+            if (data.subject === "All Category A subjects") {
+                hasAllCategoryASubjects = true;
+            }
 
             let subjectRowSpan = 0, subcategoryRowSpan = 0, subjectColSpan = 1;
 
@@ -83,7 +88,10 @@ function StatsTable(props) {
                                             className="all-border text-center">{year}</td>
                                         <td rowSpan={subjectRowSpan.toString()}
                                             colSpan={subjectColSpan.toString()}
-                                            className="all-border text-start">{t(data.subject)}</td>
+                                            className="all-border text-start">
+                                            {t(data.subject)}
+                                            {(data.subject === "All Category A subjects" ? <sup>#</sup> : "")}
+                                        </td>
                                     </>
                                 )
                                 : ""
@@ -111,7 +119,7 @@ function StatsTable(props) {
                             grades.map((g) =>
                                 <td key={g} className="color-bg">
                                     {data[gender][g].toString()} <br />
-                                    {(data[gender][g] / data[gender].noSat * 100).toFixed(1)}%
+                                    ({(data[gender][g] / data[gender].noSat * 100).toFixed(1)}%)
                                 </td>
                             )
                         }
@@ -158,6 +166,9 @@ function StatsTable(props) {
                     {rows}
                 </tbody>
             </Table>
+            {hasAllCategoryASubjects &&
+                <p><small className="text-muted"># {t("table.mathPS")}</small></p>
+            }
         </>
     );
 }
