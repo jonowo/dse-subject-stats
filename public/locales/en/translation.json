@@ -1,5 +1,8 @@
 {
-    "title": "HKDSE Subject Results Statistics",
+    "menu": {
+        "title": "HKDSE Statistics",
+        "subjectsA": "Category A Subjects"
+    },
     "about": {
         "title": "About",
         "part1": "<0>HKDSE</0> is the university entrance exam in Hong Kong. This website aggregates candidates' results in HKDSE Category A subjects as released by <1>HKEAA</1>.",
@@ -23,7 +26,7 @@
     "table": {
         "specify": "Specify either subject or year to see results.",
         "showExample": "Show example",
-        "noResults": "No results.",
+        "notAvailable": "No data.",
         "mathPS": "Mathematics Compulsory Part and Mathematics Extended Part are counted as one subject. When candidates have results in both parts, the better of the two will be selected."
     },
     "copy": {
@@ -36,7 +39,7 @@
         "total": "Total"
     },
     "candidateType": {
-        "a": "Day School Candidates",
-        "b": "All Candidates"
+        "daySchoolCandidates": "Day School Candidates",
+        "allCandidates": "All Candidates"
     }
 }

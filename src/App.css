@@ -56,6 +56,7 @@ td.bottom-border {
     background-color: #f2f2f2;
 }
 
+#stats-table.zh th,
 #stats-table.zh td {
     white-space: nowrap;
 }

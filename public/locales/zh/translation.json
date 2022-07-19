@@ -1,5 +1,8 @@
 {
-    "title": "文憑試科目成績統計",
+    "menu": {
+        "title": "文憑試成績統計",
+        "subjectsA": "甲類科目"
+    },
     "about": {
         "title": "簡介",
         "part1": "此網站收集了香港中學文憑考試考生在甲類科目的成績，數據由考評局提供。",
@@ -23,7 +26,7 @@
     "table": {
         "specify": "請選擇科目或年份。",
         "showExample": "顯示例子",
-        "noResults": "沒有結果",
+        "notAvailable": "沒有數據。",
         "mathPS": "數學必修部分及延伸部分會被視為同一個科目組合。若考生同時應考兩個部分，則選擇其中成績較好的一個。"
     },
     "copy": {
@@ -36,8 +39,8 @@
         "total": "總數"
     },
     "candidateType": {
-        "a": "日校考生",
-        "b": "全體考生"
+        "daySchoolCandidates": "日校考生",
+        "allCandidates": "全體考生"
     },
     "Biology": "生物",
     "Business, Accounting and Financial Studies": "企業、會計與財務概論",

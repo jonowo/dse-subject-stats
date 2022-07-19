@@ -1,6 +1,6 @@
 {
     "short_name": "DSE Stats",
-    "name": "HKDSE Subject Results Statistics",
+    "name": "HKDSE Statistics",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
@@ -22,22 +22,22 @@
         {
             "name": "Chinese Language",
             "short_name": "Chinese",
-            "url": "/?subject=Chinese+Language&gender=total"
+            "url": "/subjects/a?subject=Chinese+Language&gender=total"
         },
         {
             "name": "English Language",
             "short_name": "English",
-            "url": "/?subject=English+Language&gender=total"
+            "url": "/subjects/a?subject=English+Language&gender=total"
         },
         {
             "name": "Mathematics (Compulsory Part)",
             "short_name": "Math",
-            "url": "/?subject=Mathematics&subcategory=Compulsory+Part&gender=total"
+            "url": "/subjects/a?subject=Mathematics&subcategory=Compulsory+Part&gender=total"
         },
         {
             "name": "Liberal Studies",
             "short_name": "LS",
-            "url": "/?subject=Liberal+Studies&gender=total"
+            "url": "/subjects/a?subject=Liberal+Studies&gender=total"
         }
     ]
 }
